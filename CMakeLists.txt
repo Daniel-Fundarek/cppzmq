@@ -90,7 +90,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/libzmq-pkg-config/FindZeroMQ.cmake
               DESTINATION ${CPPZMQ_CMAKECONFIG_INSTALL_DIR}/libzmq-pkg-config)
 
-option(CPPZMQ_BUILD_TESTS "Whether or not to build the tests" ON)
+option(CPPZMQ_BUILD_TESTS "Whether or not to build the tests" OFF)
 
 if (CPPZMQ_BUILD_TESTS)
     enable_testing()
@@ -99,3 +99,26 @@ if (CPPZMQ_BUILD_TESTS)
         add_subdirectory(examples)
     endif()
 endif()
+
+
+#############
+# Packaging #
+#############
+
+include(InstallRequiredSystemLibraries)
+set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
+set(CPACK_GENERATOR "DEB")
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Daniel Fundarek")
+set(CPACK_PACKAGE_DESCRIPTION "cppzmq is a C++ binding for libzmq.")
+set(CPACK_PACKAGE_CONTACT "daniel.fundarek@airvolute.com")
+set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
+set(CPACK_DEBIAN_PACKAGE_DEPENDS
+  "libzmq3-dev (>= ${ZeroMQ_VERSION})"
+)
+
+set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
+)
+set(CPACK_SET_DESTDIR OFF)
+set(CPACK_PACKAGING_INSTALL_PREFIX "/usr/local")
+
+include(CPack)
