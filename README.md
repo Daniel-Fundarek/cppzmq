@@ -170,7 +170,7 @@ Build steps:
    - `cd build`
    - `make -j(n_proc)`
    - `cpack`
-   - `sudo apt install cppzmq`
+   - `sudo apt install ./cppzmq*`
 
 
 or use legacy build:
