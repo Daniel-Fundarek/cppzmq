@@ -161,6 +161,19 @@ Build instructions
 ==================
 
 Build steps:
+1.Install libzmq from apt repository
+   - `sudo apt install libzmq3-dev`
+2. Build cppzmq via cmake. pack with cpack and install debian package via apt.
+   - `git clone https://github.com/zeromq/cppzmq.git`
+   - `cd cppzmq`
+   - `mkdir build`
+   - `cd build`
+   - `make -j(n_proc)`
+   - `cpack`
+   - `sudo apt install cppzmq`
+
+
+or use legacy build:
 
 1. Build [libzmq](https://github.com/zeromq/libzmq) via cmake. This does an out of source build and installs the build files
    - `git clone https://github.com/zeromq/libzmq.git`
