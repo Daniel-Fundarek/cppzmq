@@ -109,7 +109,9 @@ include(InstallRequiredSystemLibraries)
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE")
 set(CPACK_GENERATOR "DEB")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Daniel Fundarek")
-set(CPACK_PACKAGE_DESCRIPTION "cppzmq is a C++ binding for libzmq.")
+set(CPACK_PACKAGE_DESCRIPTION 
+  "cppzmq project provides a C++ binding for the libzmq library. 
+  Installation of cppzmq debian package also installs libzmq3-dev as dependency.")
 set(CPACK_PACKAGE_CONTACT "daniel.fundarek@airvolute.com")
 set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
 set(CPACK_DEBIAN_PACKAGE_DEPENDS
