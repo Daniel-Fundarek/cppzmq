@@ -90,7 +90,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
 install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/libzmq-pkg-config/FindZeroMQ.cmake
               DESTINATION ${CPPZMQ_CMAKECONFIG_INSTALL_DIR}/libzmq-pkg-config)
 
-option(CPPZMQ_BUILD_TESTS "Whether or not to build the tests" OFF)
+option(CPPZMQ_BUILD_TESTS "Whether or not to build the tests" ON)
 
 if (CPPZMQ_BUILD_TESTS)
     enable_testing()
@@ -115,7 +115,7 @@ set(CPACK_PACKAGE_DESCRIPTION
 set(CPACK_PACKAGE_CONTACT "daniel.fundarek@airvolute.com")
 set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
 set(CPACK_DEBIAN_PACKAGE_DEPENDS
-  "libzmq3-dev (>= ${ZeroMQ_VERSION})"
+  "libzmq3-dev"
 )
 
 set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
